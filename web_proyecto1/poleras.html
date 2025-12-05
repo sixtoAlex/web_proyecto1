@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poleras Deportivas - SportApz</title>
+    <title>SportApz - Tienda Deportiva</title>
 
     <style>
         * {
@@ -15,207 +15,219 @@
         body {
             font-family: Arial, sans-serif;
             background: #f0f8ff;
-            color: #333;
+            color: #222;
         }
 
         header {
-            background: white;
-            border-bottom: 2px solid #0ea5e9;
+            background: #0a84ff;
+            color: #fff;
             padding: 15px;
-        }
-
-        header .container {
-            max-width: 1200px;
-            margin: auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            color: #0ea5e9;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        nav a {
-            margin-left: 20px;
-            text-decoration: none;
-            color: #333;
-        }
-
-        nav a:hover {
-            color: #0ea5e9;
-        }
-
-        .page-header {
-            background: linear-gradient(to right, #e0f7ff, #f5fcff);
-            padding: 40px 20px;
             text-align: center;
         }
 
-        .page-header h1 {
-            font-size: 2.5rem;
-            color: #0ea5e9;
+        nav {
+            background: #e6f2ff;
+            padding: 10px;
         }
 
-        .page-header p {
-            color: #555;
-        }
-
-        .section {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: #0ea5e9;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
             gap: 20px;
         }
 
-        .product-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            transition: 0.3s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .product-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-        }
-
-        .product-info {
-            padding: 15px;
-        }
-
-        .product-info h3 {
-            margin-bottom: 5px;
-        }
-
-        .price {
-            color: #0ea5e9;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .related {
-            background: #e9faff;
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .related h2 {
-            margin-bottom: 20px;
-            color: #0ea5e9;
-        }
-
-        .related a {
-            display: inline-block;
-            margin: 10px;
-            padding: 12px 25px;
-            border: 2px solid #0ea5e9;
-            color: #0ea5e9;
-            border-radius: 8px;
+        nav a {
             text-decoration: none;
-            transition: 0.3s;
+            font-weight: bold;
+            color: #0a84ff;
         }
 
-        .related a:hover {
-            background: #0ea5e9;
+        main {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h2 {
+            margin: 20px 0;
+            border-left: 6px solid #0a84ff;
+            padding-left: 10px;
+        }
+
+        /* GRID CENTRADA */
+        .productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    width: 100%;
+}
+
+
+        .card {
+            background: #fff;
+            width: 250px;  /* Tamaño fijo para centrar mejor */
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+            text-align: center;
+            padding-bottom: 10px;
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+            margin: auto;
+        }
+
+        .card h3 {
+            margin: 10px 0;
+        }
+
+        .card p {
+            margin: 5px 0;
+            font-weight: bold;
+            color: #0a84ff;
+        }
+
+        .boton-comprar {
+            display: inline-block;
+            background: #0a84ff;
             color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 10px;
         }
 
         footer {
-            background: #e9faff;
+            margin-top: 40px;
+            background: #0a84ff;
+            color: white;
             text-align: center;
             padding: 20px;
-            margin-top: 40px;
-            border-top: 2px solid #0ea5e9;
+        }
+
+        /* ESTILO DEL CONTENIDO EXTRA DEL FOOTER */
+        .footer-info {
+            margin-top: 10px;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .footer-info b {
+            color: #fff;
         }
     </style>
+    
+
 </head>
-
 <body>
-    <div style="text-align: center; margin-top: 20px;">
-    <img src="logo1.jpg" alt="Logo SportApz" style="height: 80px;">
-</div>
 
-    <header>
-        <div class="container">
-            <a class="logo" href="index.html">SportApz</a>
+<header style="
+    background: #0a84ff;
+    color: #fff;
+    padding: 15px;
+">
+    <div style="
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        max-width: 1100px;
+        margin: auto;
+    ">
+        <img src="logo1.jpg" alt="Logo SportApz" style="height: 60px; border-radius: 10px;">
+        <h1 style="font-size: 26px;">SportApz - Tienda Deportiva</h1>
+    </div>
+</header>
 
-            <nav>
-                <a href="index.html">Inicio</a>
-                <a href="tenis.html">Tenis</a>
-                <a href="poleras.html">Poleras</a>
-                <a href="conjuntos.html">Conjuntos</a>
-                <a href="#ofertas">Ofertas</a>
-            </nav>
+<nav>
+    <ul>
+        <li><a href="#zapatillas">poleras</a></li>
+        <li><a href="#tenis">casacas</a></li>
+        <li><a href="#carrito">Carrito</a></li>
+    </ul>
+</nav>
+
+<main>
+
+   <section id="poleras">
+    <h2>Poleras</h2>
+
+    <div class="productos">
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Polera Running Pro">
+            <h3>Polera Running Pro</h3>
+            <p>Bs. 120</p>
+            <a class="boton-comprar">Añadir</a>
         </div>
-    </header>
 
-    <section class="page-header">
-        <h1>Poleras Deportivas</h1>
-        <p>Explora las mejores poleras para tu entrenamiento</p>
-    </section>
-
-    <section class="section">
-        <h2>Productos Disponibles</h2>
-
-        <div class="products-grid">
-
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400" alt="">
-                <div class="product-info">
-                    <h3>Polera Running Breathable</h3>
-                    <p class="price">Bs. 329</p>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400" alt="">
-                <div class="product-info">
-                    <h3>Polera Gym Tank Top</h3>
-                    <p class="price">Bs. 249</p>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1528701800489-20be1c81c1a6?w=400" alt="">
-                <div class="product-info">
-                    <h3>Polera Yoga Comfort</h3>
-                    <p class="price">Bs. 319</p>
-                </div>
-            </div>
-
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Polera Ultra Fresh">
+            <h3>Polera Ultra Fresh</h3>
+            <p>Bs. 130</p>
+            <a class="boton-comprar">Añadir</a>
         </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Polera Sports Tech">
+            <h3>Polera Sports Tech</h3>
+            <p>Bs. 110</p>
+            <a class="boton-comprar">Añadir</a>
+        </div>
+    </div>
+</section>
+
+<section id="conjuntos-deportivos">
+    <h2>Conjuntos Deportivos</h2>
+
+    <div class="productos">
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Conjunto Sprint Pro">
+            <h3>Conjunto Sprint Pro</h3>
+            <p>Bs. 350</p>
+            <a class="boton-comprar">Añadir</a>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Conjunto Ultra Fit">
+            <h3>Conjunto Ultra Fit</h3>
+            <p>Bs. 370</p>
+            <a class="boton-comprar">Añadir</a>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="Conjunto Dynamic">
+            <h3>Conjunto Dynamic</h3>
+            <p>Bs. 340</p>
+            <a class="boton-comprar">Añadir</a>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- CARRITO -->
+    <section id="carrito">
+        <h2>Carrito de Compras</h2>
+        <p>No hay productos añadidos.</p>
     </section>
 
-    <section class="related">
-        <h2>Otras Categorías</h2>
-        <a href="tenis.html">Tenis Deportivos</a>
-        <a href="conjuntos.html">Conjuntos Deportivos</a>
-    </section>
+</main>
 
-    <footer>
-        © 2025 SportApz - Todos los derechos reservados.
-    </footer>
+<footer>
+    <p>© 2025 SportApz - Tienda Deportiva</p>
+
+    <div class="footer-info">
+        <p><b>Contacto:</b> sportapz@gmail.com | +591 777-12345</p>
+        <p><b>Ubicación:</b> La Paz - Bolivia</p>
+        <p><b>Redes Sociales:</b> Facebook | Instagram | TikTok</p>
+    </div>
+</footer>
 
 </body>
 </html>
+
