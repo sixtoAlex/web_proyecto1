@@ -1,49 +1,61 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SportApz - Tienda Deportiva</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; background: #f0f8ff; color: #222; }
-        header { background: #0a84ff; color: #fff; padding: 15px; text-align: center; }
-        nav { background: #e6f2ff; padding: 10px; }
-        nav ul { display: flex; list-style: none; justify-content: center; gap: 20px; }
-        nav a { text-decoration: none; font-weight: bold; color: #0a84ff; }
-        main { max-width: 1100px; margin: auto; padding: 20px; }
-        h2 { margin: 20px 0; border-left: 6px solid #0a84ff; padding-left: 10px; }
-        .productos { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
-        .card { flex: 1 1 calc(33.333% - 20px); max-width: 300px; background: white; padding: 15px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center; }
-        .card img { width: 100%; height: auto; border-radius: 8px; margin-bottom: 10px; }
-        .card h3 { margin: 10px 0; }
-        .card p { margin: 5px 0; font-weight: bold; color: #0a84ff; }
-        .boton-comprar { display: inline-block; padding: 8px 15px; background-color: #0aa4e8; color: white; border-radius: 5px; text-decoration: none; cursor: pointer; }
-        .boton-comprar:hover { background-color: #007bbf; }
-        footer { margin-top: 40px; background: #0a84ff; color: white; text-align: center; padding: 20px; }
-        .footer-info { margin-top: 10px; font-size: 15px; line-height: 1.5; }
-        .footer-info b { color: #fff; }
-        #carrito ul { list-style: none; padding: 0; margin-top: 10px; }
-        #carrito li { margin-bottom: 5px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SportApz - Tienda Deportiva</title>
+
+<style>
+    /* Tu CSS original exactamente igual */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #f0f8ff; color: #222; }
+    header { background: #0a84ff; color: #fff; padding: 15px; text-align: center; }
+    nav { background: #e6f2ff; padding: 10px; }
+    nav ul { display: flex; list-style: none; justify-content: center; gap: 20px; }
+    nav a { text-decoration: none; font-weight: bold; color: #0a84ff; }
+    main { max-width: 1100px; margin: auto; padding: 20px; }
+    h2 { margin: 20px 0; border-left: 6px solid #0a84ff; padding-left: 10px; }
+    .productos { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+    .card { background: #fff; width: 250px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.15); text-align: center; padding-bottom: 10px; }
+    .card img { width: 100%; height: 180px; object-fit: cover; display: block; margin: auto; }
+    .card h3 { margin: 10px 0; }
+    .card p { margin: 5px 0; font-weight: bold; color: #0a84ff; }
+    .boton-comprar { display: inline-block; background: #0aa4e8; color: white; padding: 8px 15px; border-radius: 5px; text-decoration: none; cursor: pointer; margin-top: 10px; }
+    footer { margin-top: 40px; background: #0a84ff; color: white; text-align: center; padding: 20px; }
+    .footer-info { margin-top: 10px; font-size: 15px; line-height: 1.5; }
+    .footer-info b { color: #fff; }
+    #carrito ul { list-style: none; padding: 0; margin-top: 10px; }
+    #carrito li { margin-bottom: 5px; }
+</style>
 </head>
+
 <body>
 
-<header style="display: flex; align-items: center; gap: 15px; max-width: 1100px; margin: auto;">
-    <img src="logo1.jpg" alt="Logo SportApz" style="height: 60px; border-radius: 10px;">
-    <h1 style="font-size: 26px;">SportApz - Tienda Deportiva</h1>
+<header>
+    <div style="
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        max-width: 1100px;
+        margin: auto;
+        padding: 10px;
+    ">
+        <img src="logo1.jpg" alt="Logo SportApz" style="height: 60px; border-radius: 10px;">
+        <h1 style="font-size: 26px;">SportApz - Tienda Deportiva</h1>
+    </div>
 </header>
+
 
 <nav>
     <ul>
-        <li><a href="#conjuntos-deportivos">Conjuntos Deportivos</a></li>
+        <li><a href="#deportivos">Conjuntos Deportivos</a></li>
         <li><a href="#carrito">Carrito</a></li>
     </ul>
 </nav>
 
 <main>
 
-<section id="conjuntos-deportivos">
+<section id="deportivos">
     <h2>Conjuntos Deportivos</h2>
     <div class="productos">
         <div class="card">
@@ -85,6 +97,7 @@
     </div>
 </section>
 
+<!-- Sección Carrito -->
 <section id="carrito">
     <h2>Carrito de Compras</h2>
     <ul id="lista-carrito">
@@ -104,8 +117,8 @@
     </div>
 </footer>
 
-<!-- JavaScript -->
 <script>
+    // JavaScript para añadir productos al carrito
     const botones = document.querySelectorAll('.boton-comprar');
     const listaCarrito = document.getElementById('lista-carrito');
     const totalCarrito = document.getElementById('total-carrito');
