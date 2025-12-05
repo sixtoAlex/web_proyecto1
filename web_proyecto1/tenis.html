@@ -229,6 +229,57 @@
         <p><b>Redes Sociales:</b> Facebook | Instagram | TikTok</p>
     </div>
 </footer>
+<script>
+// ------ CARRITO ------
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+const botones = document.querySelectorAll(".boton-comprar");
+const carritoSeccion = document.querySelector("#carrito p");
+
+// ------ ACTUALIZAR VISTA ------
+function actualizarCarrito() {
+    if (carrito.length === 0) {
+        carritoSeccion.textContent = "No hay productos añadidos.";
+        return;
+    }
+
+    carritoSeccion.innerHTML = carrito
+        .map((p, i) => `• ${p.nombre} - Bs. ${p.precio}`)
+        .join("<br>");
+}
+
+// ------ AGREGAR PRODUCTO ------
+botones.forEach(boton => {
+    boton.addEventListener("click", () => {
+        const card = boton.parentElement;
+        const nombre = card.querySelector("h3").textContent;
+        const precio = card.querySelector("p").textContent.replace("Bs. ", "");
+
+        carrito.push({ nombre, precio });
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+
+        // mensaje flotante
+        const msg = document.createElement("div");
+        msg.textContent = "✔ Añadido al carrito";
+        msg.style.position = "fixed";
+        msg.style.top = "20px";
+        msg.style.right = "20px";
+        msg.style.background = "#0a84ff";
+        msg.style.padding = "10px 15px";
+        msg.style.color = "white";
+        msg.style.borderRadius = "6px";
+        msg.style.boxShadow = "0 3px 6px rgba(0,0,0,0.3)";
+        document.body.appendChild(msg);
+
+        setTimeout(() => msg.remove(), 1500);
+
+        actualizarCarrito();
+    });
+});
+
+// ------ INICIALIZAR ------
+actualizarCarrito();
+</script>
 
 </body>
 </html>

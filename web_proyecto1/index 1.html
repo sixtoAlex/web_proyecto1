@@ -416,6 +416,60 @@
     <p>La Paz, Bolivia</p>
     <p>&copy; 2024 SportApz. Todos los derechos reservados.</p>
 </footer>
+<!-- ------------------------ JAVASCRIPT ------------------------ -->
+<script>
+// Animación scroll (fade-in)
+const faders = document.querySelectorAll('.fade');
+const options = { threshold: 0.2 };
+
+const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+        }
+    })
+}, options);
+
+faders.forEach(el=>{
+    el.style.opacity = "0";
+    el.style.transform = "translateY(40px)";
+    el.style.transition = "0.8s";
+    observer.observe(el);
+});
+
+// Navegación suave
+document.querySelectorAll('a[href^="#"]').forEach(link=>{
+    link.addEventListener('click', function(e){
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href'))
+        .scrollIntoView({behavior:"smooth"});
+        document.getElementById('menu-toggle').checked = false;
+    });
+});
+
+// Botón volver arriba
+const btnTop = document.getElementById("btnTop");
+
+window.addEventListener("scroll", ()=>{
+    if(window.scrollY > 400){
+        btnTop.style.display = "block";
+    } else {
+        btnTop.style.display = "none";
+    }
+});
+
+btnTop.addEventListener("click", ()=>{
+    window.scrollTo({top:0, behavior:"smooth"});
+});
+
+// Menú responsive con JS (mejor manejo)
+document.querySelector(".menu-icon").addEventListener("click", ()=>{
+    const menu = document.querySelector("nav ul");
+    menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+});
+</script>
+
 
 </body>
 </html>
