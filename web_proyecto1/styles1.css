@@ -4,6 +4,48 @@
             padding: 0;
             box-sizing: border-box;
         }
+        /* ESTILOS PARA EL HEADER */
+header {
+    background: #0a84ff; /* El color azul que usabas */
+    color: #fff;
+    padding: 15px 0; /* Un poco de padding arriba y abajo */
+}
+
+.header-container {
+    /* Mantiene los elementos centrados en la página */
+    max-width: 1100px;
+    margin: auto;
+    
+    /* Configura el diseño principal de la barra */
+    display: flex;
+    align-items: center;
+    /* Separa el logo y el título */
+    justify-content: space-between; 
+    padding: 0 20px; /* Relleno lateral para que no pegue a los bordes */
+}
+
+/* Estilo para el grupo del logo */
+.logo-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-img {
+    height: 60px;
+    border-radius: 10px; /* Bordes redondeados para evitar un aspecto muy cuadrado */
+}
+
+/* Estilo para el enlace del título */
+.title-link {
+    text-decoration: none;
+    color: white;
+}
+
+.title-link h1 {
+    font-size: 26px;
+    margin: 0; /* Quita el margen predeterminado del h1 que puede causar espaciado extra */
+}
 
         body {
             font-family: Arial, sans-serif;
