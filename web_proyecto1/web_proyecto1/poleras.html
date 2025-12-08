@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportApz - Tienda Deportiva</title>
+
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+<header style="background: #0a84ff; color: #fff; padding: 15px;">
+    <div class="header-container">
+        
+                <div class="logo-group"> 
+            <img src="logo11.png" alt="Logo SportApz" class="logo-img">
+        </div>
+        
+                <a href="index 1.html" class="title-link">
+            <h1>SportApz - Tienda Deportiva</h1>
+        </a>
+    </div>
+</header>
+
+<nav>
+    <ul>
+            <li><a href="index 1.html">Inicio</a></li>
+        <li><a href="#poleras">Poleras</a></li>
+        <li><a href="#conjuntos-deportivos">Conjuntos Deportivos</a></li>
+        <li><a href="#carrito">Carrito</a></li>
+    </ul>
+</nav>
+
+<main>
+
+   <section id="poleras">
+    <h2>Poleras</h2>
+    <div class="productos">
+        <div class="card">
+            <img src="polera1.png" alt="Polera Running Pro">
+            <h3>Polera Running Pro</h3>
+            <p>Bs. 120</p>
+            <a class="boton-comprar" data-nombre="Polera Running Pro" data-precio="120">Añadir</a>
+        </div>
+
+        <div class="card">
+            <img src="polera2.png" alt="Polera Ultra Fresh">
+            <h3>Polera Ultra Fresh</h3>
+            <p>Bs. 130</p>
+            <a class="boton-comprar" data-nombre="Polera Ultra Fresh" data-precio="130">Añadir</a>
+        </div>
+
+        <div class="card">
+            <img src="polera3.png" alt="Polera Sports Tech">
+            <h3>Polera Sports Tech</h3>
+            <p>Bs. 110</p>
+            <a class="boton-comprar" data-nombre="Polera Sports Tech" data-precio="110">Añadir</a>
+        </div>
+    </div>
+</section>
+
+<section id="conjuntos-deportivos">
+    <h2>Conjuntos Deportivos</h2>
+    <div class="productos">
+        <div class="card">
+            <img src="polera4.png" alt="Conjunto Bolivar Pro">
+            <h3>Conjunto Sprint Pro</h3>
+            <p>Bs. 350</p>
+            <a class="boton-comprar" data-nombre="Conjunto Bolivar Pro" data-precio="350">Añadir</a>
+        </div>
+
+        <div class="card">
+            <img src="logo5.png" alt="Conjunto AKD">
+            <h3>Conjunto Ultra Fit</h3>
+            <p>Bs. 370</p>
+            <a class="boton-comprar" data-nombre="Conjunto AKD" data-precio="370">Añadir</a>
+        </div>
+
+        <div class="card">
+            <img src="polera6.png" alt="Conjunto Dynamic">
+            <h3>Conjunto Dynamic</h3>
+            <p>Bs. 340</p>
+            <a class="boton-comprar" data-nombre="Conjunto Dynamic" data-precio="340">Añadir</a>
+        </div>
+    </div>
+</section>
+
+<section id="carrito">
+    <h2>Carrito de Compras</h2>
+    <div id="lista-productos-carrito">
+        <p>No hay productos añadidos.</p>
+    </div>
+    <div id="resumen-carrito" style="margin-top: 20px;">
+        <p id="total-carrito" style="font-size: 1.2em; font-weight: bold;">Total: Bs. 0</p>
+        <a id="boton-vaciar" style="background: #dc3545; color: white; padding: 10px 15px; border-radius: 5px; cursor: pointer; text-decoration: none; margin-right: 10px; display: inline-block;">Vaciar Carrito</a>
+        <a id="boton-comprar-final" style="background: #28a745; color: white; padding: 10px 15px; border-radius: 5px; cursor: pointer; text-decoration: none; display: inline-block;">Finalizar Compra</a>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <p>© 2025 SportApz - Tienda Deportiva</p>
+    <div class="footer-info">
+        <p><b>Contacto:</b> sportapz@gmail.com | +591 777-12345</p>
+        <p><b>Ubicación:</b> La Paz - Bolivia</p>
+        <p><b>Redes Sociales:</b> Facebook | Instagram | TikTok</p>
+    </div>
+</footer>
+
+<!-- JavaScript -->
+<script>
+   // Inicializa el carrito leyendo desde localStorage
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+const botonesComprar = document.querySelectorAll('.boton-comprar');
+const listaProductosCarrito = document.getElementById('lista-productos-carrito');
+const totalCarritoElemento = document.getElementById('total-carrito');
+const resumenCarrito = document.getElementById('resumen-carrito');
+const botonVaciar = document.getElementById('boton-vaciar');
+const botonComprarFinal = document.getElementById('boton-comprar-final');
+
+// ------ CALCULAR TOTAL ------
+function calcularTotal() {
+    // Suma todos los precios del carrito
+    const total = carrito.reduce((sum, p) => sum + p.precio, 0);
+    totalCarritoElemento.textContent = `Total: Bs. ${total.toFixed(2)}`;
+}
+
+// ------ ELIMINAR PRODUCTO individualmente ------
+function eliminarProducto(e) {
+    // Obtiene el índice del producto a eliminar
+    const indice = e.target.getAttribute("data-indice");
+    // Elimina 1 elemento en la posición 'indice'
+    carrito.splice(indice, 1);
+    
+    // Actualiza el almacenamiento y la vista
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    actualizarCarrito();
+}
+
+// ------ ACTUALIZAR VISTA DEL CARRITO ------
+function actualizarCarrito() {
+    // Si el carrito está vacío
+    if (carrito.length === 0) {
+        listaProductosCarrito.innerHTML = "<p>No hay productos añadidos.</p>";
+        resumenCarrito.style.display = 'none'; // Oculta botones y total
+        calcularTotal();
+        return;
+    }
+    
+    // Si hay productos, muestra la lista y los botones de acción
+    resumenCarrito.style.display = 'block';
+
+    // Genera el HTML de la lista de productos con botón de eliminar
+    listaProductosCarrito.innerHTML = carrito
+        .map((p, i) => `
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                <span>• ${p.nombre} - Bs. ${p.precio.toFixed(2)}</span>
+                <a class="boton-eliminar" data-indice="${i}" style="background: #dc3545; color: white; padding: 3px 8px; border-radius: 3px; cursor: pointer; font-size: 0.8em; text-decoration: none;">X Eliminar</a>
+            </div>
+        `)
+        .join("");
+
+    // Asigna el evento click a los botones de eliminar recién creados
+    document.querySelectorAll(".boton-eliminar").forEach(boton => {
+        boton.addEventListener("click", eliminarProducto);
+    });
+
+    calcularTotal();
+}
+
+// ------ LÓGICA DE AÑADIR PRODUCTO ------
+botonesComprar.forEach(boton => {
+    boton.addEventListener('click', () => {
+        const nombre = boton.dataset.nombre;
+        // Convierte el precio a número
+        const precio = parseFloat(boton.dataset.precio);
+
+        // Añade el producto al carrito
+        carrito.push({ nombre, precio });
+        
+        // Guarda el carrito en localStorage
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+
+        // Muestra mensaje flotante
+        const msg = document.createElement("div");
+        msg.textContent = `✔ ${nombre} añadido al carrito`;
+        msg.style.position = "fixed";
+        msg.style.top = "20px";
+        msg.style.right = "20px";
+        msg.style.background = "#0a84ff";
+        msg.style.padding = "10px 15px";
+        msg.style.color = "white";
+        msg.style.borderRadius = "6px";
+        msg.style.boxShadow = "0 3px 6px rgba(0,0,0,0.3)";
+        document.body.appendChild(msg);
+
+        setTimeout(() => msg.remove(), 1500);
+
+        // Actualiza la vista del carrito
+        actualizarCarrito();
+    });
+});
+
+// ------ VACIAR CARRITO completo ------
+botonVaciar.addEventListener("click", () => {
+    if (confirm("¿Estás seguro de que deseas vaciar todo el carrito?")) {
+        carrito = [];
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        actualizarCarrito();
+        alert("El carrito ha sido vaciado.");
+    }
+});
+
+// ------ FINALIZAR COMPRA ------
+botonComprarFinal.addEventListener("click", () => {
+    if (carrito.length > 0) {
+        // Recalcula el total final por seguridad
+        const total = carrito.reduce((sum, p) => sum + p.precio, 0).toFixed(2);
+        alert(`¡Gracias por tu compra en SportApz! Tu total a pagar es: Bs. ${total}`);
+        
+        // Vacía el carrito después de la compra
+        carrito = [];
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        actualizarCarrito();
+    } else {
+        alert("Tu carrito está vacío. Añade productos para finalizar la compra.");
+    }
+});
+
+
+// ------ INICIALIZAR LA VISTA AL CARGAR LA PÁGINA ------
+actualizarCarrito();
+</script>
+</script>
+
+</body>
+</html>
+
+

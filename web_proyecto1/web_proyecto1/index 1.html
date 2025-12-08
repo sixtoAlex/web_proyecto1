@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SportApz - Equipamiento Deportivo</title>
+<link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+    
+
+<header><div class="logo-container">
+ <img src="logo11.png" alt="Logo SportApz">
+ </div>
+
+ <label for="menu-toggle" class="menu-icon">☰</label>
+ <input type="checkbox" id="menu-toggle">
+
+ <nav>
+ <ul>
+ <li><a href="index1.html">Inicio</a></li> 
+ <li><a href="#categorias">Categorías</a></li>
+ <li><a href="#contacto">Contacto</a></li>
+ </ul>
+ </nav>
+</header>
+ 
+
+<main>
+
+<!-- BANNER / HERO -->
+<section class="hero">
+    <div class="hero-content">
+
+        <span class="badge"> la Nueva Colección</span>
+
+        <h1><span>Equipamiento</span><br>Deportivo Completo</h1>
+
+        <p>Encuentra tenis, poleras y conjuntos deportivos de alto rendimiento 
+           para tu estilo activo.</p>
+
+        <div class="hero-stats">
+            <div><strong>120+</strong><span>Productos</span></div>
+            <div><strong>20+</strong><span>Marcas</span></div>
+            <div><strong>24/7</strong><span>Soporte</span></div>
+        </div>
+
+    </div>
+
+    <div class="hero-image">
+        <div class="tag top">  
+            <span>🚚 Envío Gratis</span>
+            <small>En compras +bs50</small>
+        </div>
+
+        <img src="main.jpg" alt="Producto destacado">
+
+        <div class="tag bottom">
+            <span>⭐ +2500 Reviews</span>
+            <small>Clientes felices</small>
+        </div>
+    </div>
+</section>
+
+<section id="categorias">
+    <h2>Nuestras Categorías</h2>
+    <p>Selecciona una categoría para ver nuestros productos disponibles.</p>
+
+    <div class="contenedor-productos">
+
+        <article>
+            <a href="tenis.html">
+                <h3>Tenis Deportivos</h3>
+                <img src="https://images.unsplash.com/photo-1739132268718-53d64165d29a" alt="Tenis deportivos">
+            </a>
+            <p>Tenis para running, entrenamiento y más.</p>
+        </article>
+
+        <article>
+            <a href="poleras.html">
+                <h3>Poleras Deportivas</h3>
+                <img src="https://images.unsplash.com/photo-1762830445441-bf72461f4799" alt="Poleras deportivas">
+            </a>
+            <p>Poleras cómodas y resistentes</p>
+        </article>
+
+        <article>
+            <a href="conjuntos.html">
+                <h3>Conjuntos Deportivos</h3>
+                <img src="https://images.unsplash.com/photo-1679768763201-e07480531b49" alt="Conjuntos deportivos">
+            </a>
+            <p>Conjuntos completos para todo tipo de deporte.</p>
+        </article>
+
+    </div>
+
+</section>
+
+</main>
+
+<footer id="contacto">
+    <h2>Contacto</h2>
+    <p>Email: info@sportapz.com</p>
+    <p>Tel: +56 9 1234 5678</p>
+    <p>La Paz, Bolivia</p>
+    <p>&copy; 2024 SportApz. Todos los derechos reservados.</p>
+</footer>
+<!-- ------------------------ JAVASCRIPT ------------------------ -->
+<script>
+// 1. Inicializa el carrito leyendo desde localStorage
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+const botonesComprar = document.querySelectorAll('.boton-comprar');
+const listaCarrito = document.getElementById('lista-carrito');
+const totalCarritoElemento = document.getElementById('total-carrito');
+const botonVaciar = document.getElementById('boton-vaciar');
+const botonComprarFinal = document.getElementById('boton-comprar-final');
+const resumenCarrito = document.getElementById('resumen-carrito');
+
+// ------ FUNCIÓN PARA MOSTRAR MENSAJES FLOTANTES ------
+function mostrarMensaje(texto, colorFondo) {
+    const msg = document.createElement("div");
+    msg.textContent = texto;
+    msg.style.cssText = `position: fixed; top: 20px; right: 20px; background: ${colorFondo}; padding: 10px 15px; color: white; border-radius: 6px; box-shadow: 0 3px 6px rgba(0,0,0,0.3); z-index: 1000;`;
+    document.body.appendChild(msg);
+
+    setTimeout(() => msg.remove(), 1500);
+}
+
+// ------ CALCULAR TOTAL ------
+function calcularTotal() {
+    const total = carrito.reduce((sum, p) => sum + p.precio, 0);
+    totalCarritoElemento.textContent = `Total: Bs. ${total.toFixed(2)}`;
+    return total;
+}
+
+// ------ ELIMINAR PRODUCTO individualmente ------
+function eliminarProducto(index) {
+    const nombreProducto = carrito[index].nombre;
+    
+    // Elimina 1 elemento en la posición 'index'
+    carrito.splice(index, 1);
+    
+    // Actualiza el almacenamiento y la vista
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    actualizarCarrito();
+    
+    // MUESTRA MENSAJE DE ELIMINACIÓN
+    mostrarMensaje(`❌ ${nombreProducto} eliminado`, '#dc3545'); // Rojo
+}
+
+// ------ ACTUALIZAR VISTA DEL CARRITO ------
+function actualizarCarrito() {
+    calcularTotal(); 
+    
+    if (carrito.length === 0) {
+        listaCarrito.innerHTML = '<li>No hay productos añadidos.</li>';
+        resumenCarrito.style.display = 'none';
+        return;
+    }
+    
+    resumenCarrito.style.display = 'block';
+
+    // Genera la lista de productos con botón de eliminar estilizado como botón
+    listaCarrito.innerHTML = carrito
+        .map((p, i) => {
+            return `
+                <li style="display: flex; justify-content: space-between; align-items: center; padding: 5px 0;">
+                    <span>${p.nombre} - Bs. ${p.precio.toFixed(2)}</span>
+                    <a href="#" class="boton-eliminar-item" data-indice="${i}" 
+                       style="background: #dc3545; color: white; padding: 3px 8px; border-radius: 4px; cursor: pointer; text-decoration: none; font-size: 0.8em; margin-left: 10px;">
+                       Eliminar
+                    </a>
+                </li>
+            `;
+        })
+        .join("");
+
+    // Asigna el evento click a los botones de eliminar recién creados
+    document.querySelectorAll(".boton-eliminar-item").forEach(boton => {
+        boton.addEventListener("click", (e) => {
+            e.preventDefault();
+            const index = parseInt(e.target.getAttribute("data-indice"));
+            eliminarProducto(index);
+        });
+    });
+}
+
+// ------ LÓGICA DE AÑADIR PRODUCTO ------
+botonesComprar.forEach(boton => {
+    boton.addEventListener('click', () => {
+        const nombre = boton.dataset.nombre;
+        const precio = parseFloat(boton.dataset.precio);
+
+        carrito.push({ nombre, precio });
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        
+        // MUESTRA MENSAJE DE AÑADIR
+        mostrarMensaje(`✔ ${nombre} añadido`, '#0a84ff'); // Azul
+
+        actualizarCarrito();
+    });
+});
+
+// ------ VACIAR CARRITO completo ------
+botonVaciar.addEventListener("click", () => {
+    if (confirm("¿Estás seguro de que deseas vaciar todo el carrito?")) {
+        carrito = [];
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        actualizarCarrito();
+        mostrarMensaje("🛒 Carrito vaciado", '#dc3545');
+    }
+});
+
+// ------ FINALIZAR COMPRA ------
+botonComprarFinal.addEventListener("click", () => {
+    if (carrito.length > 0) {
+        const total = calcularTotal().toFixed(2);
+        alert(`¡Gracias por tu compra en SportApz! Tu total a pagar es: Bs. ${total}`);
+        
+        // Vacía el carrito después de la compra
+        carrito = [];
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        actualizarCarrito();
+    } else {
+        alert("Tu carrito está vacío. Añade productos para finalizar la compra.");
+    }
+});
+
+
+// ------ INICIALIZAR LA VISTA AL CARGAR LA PÁGINA ------
+actualizarCarrito();
+</script>
+
+
+</body>
+</html>
