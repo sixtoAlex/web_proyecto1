@@ -3,110 +3,114 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SportApz - Tienda Deportiva</title>
-<link rel="stylesheet" href="styles3.css">
+<title> SportApz - Equipamiento Deportivo</title>
+<link rel="stylesheet" href="styles.css">
+
 </head>
 
 <body>
 
-<header>
-    <div style="
-        display: flex;
-        align-items: center;
-        /* Alinea el contenido al inicio y empuja el segundo elemento (el título) lo más lejos posible */
-        justify-content: flex-start; 
-        gap: 15px;
-        max-width: 1100px;
-        margin: auto;
-        padding: 10px;
-    ">
-        <img src="logo11.png" alt="Logo SportApz" style="height: 60px; border-radius: 10px;">
-        
-        <a href="index 1.html" style="text-decoration: none; color: white; margin-left: auto;">
-            <h1 style="font-size: 26px; margin: 0;">SportApz - Tienda Deportiva</h1>
-        </a>
-    </div>
+    
+
+<header><div class="logo-container">
+ <img src="logo11.png" alt="Logo SportApz">
+ </div>
+
+ <label for="menu-toggle" class="menu-icon">☰</label>
+ <input type="checkbox" id="menu-toggle">
+
+ <nav>
+ <ul>
+ <li><a href="index1.html">Inicio</a></li> 
+ <li><a href="#categorias">Categorías</a></li>
+ <li><a href="#contacto">Contacto</a></li>
+ </ul>
+ </nav>
 </header>
-
-
-<nav>
-    <ul>
-        <li><a href="index 1.html">Inicio</a></li> 
-        <li><a href="#deportivos">Conjuntos Deportivos</a></li>
-        <li><a href="#carrito">Carrito</a></li>
-    </ul>
-</nav>
+ 
 
 <main>
 
-<section id="deportivos">
-    <h2>Conjuntos Deportivos</h2>
-    <div class="productos">
-        <div class="card">
-            <img src="conjunto1.png" alt="Conjunto Sprint Pro">
-            <h3>Conjunto Sprint Pro</h3>
-            <p>Bs. 350</p>
-            <a class="boton-comprar" data-nombre="Conjunto Sprint Pro" data-precio="350">Añadir</a>
+<!-- BANNER / HERO -->
+<section class="hero">
+    <div class="hero-content">
+
+        <span class="badge">Nueva Colección</span>
+
+        <h1><span>Equipamiento</span><br>Deportivo Completo</h1>
+
+        <p>Encuentra tenis, poleras y conjuntos deportivos de alto rendimiento 
+           para tu estilo activo.</p>
+
+        <div class="hero-stats">
+            <div><strong>120+</strong><span>Productos</span></div>
+            <div><strong>20+</strong><span>Marcas</span></div>
+            <div><strong>24/7</strong><span>Soporte</span></div>
         </div>
-        <div class="card">
-            <img src="conjunto2.png" alt="Conjunto Ultra Fit">
-            <h3>Conjunto Ultra Fit</h3>
-            <p>Bs. 370</p>
-            <a class="boton-comprar" data-nombre="Conjunto Ultra Fit" data-precio="370">Añadir</a>
+
+    </div>
+
+    <div class="hero-image">
+        <div class="tag top">  
+            <span>🚚 Envío Gratis</span>
+            <small>En compras +$50</small>
         </div>
-        <div class="card">
-            <img src="conunto5.png" alt="Conjunto Dynamic">
-            <h3>Conjunto Dynamic</h3>
-            <p>Bs. 340</p>
-            <a class="boton-comprar" data-nombre="Conjunto Dynamic" data-precio="340">Añadir</a>
-        </div>
-        <div class="card">
-            <img src="conjunto6.png" alt="Conjunto Power">
-            <h3>Conjunto Power</h3>
-            <p>Bs. 360</p>
-            <a class="boton-comprar" data-nombre="Conjunto Power" data-precio="360">Añadir</a>
-        </div>
-        <div class="card">
-            <img src="cojunto4.png" alt="Conjunto Flex">
-            <h3>Conjunto Flex</h3>
-            <p>Bs. 330</p>
-            <a class="boton-comprar" data-nombre="Conjunto Flex" data-precio="330">Añadir</a>
-        </div>
-        <div class="card">
-            <img src="conunto3.png" alt="Conjunto Velocity">
-            <h3>Conjunto Velocity</h3>
-            <p>Bs. 350</p>
-            <a class="boton-comprar" data-nombre="Conjunto Velocity" data-precio="350">Añadir</a>
+
+        <img src="main.jpg" alt="Producto destacado">
+
+        <div class="tag bottom">
+            <span>⭐ +2500 Reviews</span>
+            <small>Clientes felices</small>
         </div>
     </div>
 </section>
 
-<section id="carrito">
-    <h2>Carrito de Compras</h2>
-    <ul id="lista-carrito">
-        <li>No hay productos añadidos.</li>
-    </ul>
-    <p id="total-carrito"></p>
-    
-    <div id="resumen-carrito" style="margin-top: 20px;">
-        <a id="boton-vaciar" style="background: #dc3545; color: white; padding: 10px 15px; border-radius: 5px; cursor: pointer; text-decoration: none; margin-right: 10px; display: inline-block;">Vaciar Carrito</a>
-        <a id="boton-comprar-final" style="background: #28a745; color: white; padding: 10px 15px; border-radius: 5px; cursor: pointer; text-decoration: none; display: inline-block;">Finalizar Compra</a>
+<section id="categorias">
+    <h2>Nuestras Categorías</h2>
+    <p>Selecciona una categoría para ver nuestros productos disponibles.</p>
+
+    <div class="contenedor-productos">
+
+        <article>
+            <a href="tenis.html">
+                <h3>Tenis Deportivos</h3>
+                <img src="https://images.unsplash.com/photo-1739132268718-53d64165d29a" alt="Tenis deportivos">
+            </a>
+            <p>Tenis para running, entrenamiento y más.</p>
+        </article>
+
+        <article>
+            <a href="poleras.html">
+                <h3>Poleras Deportivas</h3>
+                <img src="https://images.unsplash.com/photo-1762830445441-bf72461f4799" alt="Poleras deportivas">
+            </a>
+            <p>Poleras cómodas y resistentes.</p>
+        </article>
+
+        <article>
+            <a href="conjuntos.html">
+                <h3>Conjuntos Deportivos</h3>
+                <img src="https://images.unsplash.com/photo-1679768763201-e07480531b49" alt="Conjuntos deportivos">
+            </a>
+            <p>Conjuntos completos para todo tipo de deporte.</p>
+        </article>
+
     </div>
+
 </section>
 
 </main>
 
-<footer>
-    <p>© 2025 SportApz - Tienda Deportiva</p>
-    <div class="footer-info">
-        <p><b>Contacto:</b> sportapz@gmail.com | +591 777-12345</p>
-        <p><b>Ubicación:</b> La Paz - Bolivia</p>
-        <p><b>Redes Sociales:</b> Facebook | Instagram | TikTok</p>
-    </div>
+<footer id="contacto">
+    <h2>Contacto</h2>
+    <p>Email: info@sportapz.com</p>
+    <p>Tel: +56 9 1234 5678</p>
+    <p>La Paz, Bolivia</p>
+    <p>&copy; 2024 SportApz. Todos los derechos reservados.</p>
 </footer>
-
+<!-- ------------------------ JAVASCRIPT ------------------------ -->
 <script>
-    // 1. Inicializa el carrito leyendo desde localStorage
+// 1. Inicializa el carrito leyendo desde localStorage
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const botonesComprar = document.querySelectorAll('.boton-comprar');
@@ -148,7 +152,7 @@ function eliminarProducto(index) {
     mostrarMensaje(`❌ ${nombreProducto} eliminado`, '#dc3545'); // Rojo
 }
 
-// ------ ACTUALIZAR VISTA DEL CARRITO (MODIFICADA) ------
+// ------ ACTUALIZAR VISTA DEL CARRITO ------
 function actualizarCarrito() {
     calcularTotal(); 
     
@@ -231,7 +235,6 @@ botonComprarFinal.addEventListener("click", () => {
 actualizarCarrito();
 </script>
 
+
 </body>
 </html>
-
-
