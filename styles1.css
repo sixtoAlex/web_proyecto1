@@ -156,4 +156,29 @@ header {
         .footer-info b {
             color: #fff;
         }
+        .card {
+    /* ... otros estilos ... */
+    /* Transición para animación suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+/* Efecto al pasar el ratón (hover) */
+.card:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2); 
+    /* Esta línea añade el cursor de "dedo" o puntero */
+    cursor: pointer; 
+}
+.boton-comprar {
+    /* ... otros estilos ... */
+    text-decoration: none;
+    margin-top: 10px;
+    transition: background-color 0.2s ease;
+    /* (Opcional, pero confirma el dedo) */
+    cursor: pointer; 
+}
+
+.boton-comprar:hover {
+    background: #0066cc; 
+}
   

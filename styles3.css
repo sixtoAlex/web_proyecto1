@@ -1,20 +1,61 @@
 /* Tu CSS original exactamente igual */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; background: #f0f8ff; color: #222; }
-    header { background: #0a84ff; color: #fff; padding: 15px; text-align: center; }
-    nav { background: #e6f2ff; padding: 10px; }
-    nav ul { display: flex; list-style: none; justify-content: center; gap: 20px; }
-    nav a { text-decoration: none; font-weight: bold; color: #0a84ff; }
-    main { max-width: 1100px; margin: auto; padding: 20px; }
-    h2 { margin: 20px 0; border-left: 6px solid #0a84ff; padding-left: 10px; }
-    .productos { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
-    .card { background: #fff; width: 250px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 6px rgba(0,0,0,0.15); text-align: center; padding-bottom: 10px; }
-    .card img { width: 100%; height: 180px; object-fit: cover; display: block; margin: auto; }
-    .card h3 { margin: 10px 0; }
-    .card p { margin: 5px 0; font-weight: bold; color: #0a84ff; }
-    .boton-comprar { display: inline-block; background: #0aa4e8; color: white; padding: 8px 15px; border-radius: 5px; text-decoration: none; cursor: pointer; margin-top: 10px; }
-    footer { margin-top: 40px; background: #0a84ff; color: white; text-align: center; padding: 20px; }
-    .footer-info { margin-top: 10px; font-size: 15px; line-height: 1.5; }
-    .footer-info b { color: #fff; }
-    #carrito ul { list-style: none; padding: 0; margin-top: 10px; }
-    #carrito li { margin-bottom: 5px; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, sans-serif; background: #f0f8ff; color: #222; }
+header { background: #0a84ff; color: #fff; padding: 15px; text-align: center; }
+nav { background: #e6f2ff; padding: 10px; }
+nav ul { display: flex; list-style: none; justify-content: center; gap: 20px; }
+nav a { text-decoration: none; font-weight: bold; color: #0a84ff; }
+main { max-width: 1100px; margin: auto; padding: 20px; }
+h2 { margin: 20px 0; border-left: 6px solid #0a84ff; padding-left: 10px; }
+.productos { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+
+/* MODIFICACIONES INICIADAS AQUÍ: Animación y Cursor */
+.card { 
+    background: #fff; 
+    width: 250px; 
+    border-radius: 10px; 
+    overflow: hidden; 
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15); 
+    text-align: center; 
+    padding-bottom: 10px; 
+
+    /* AÑADIDO: Cursor de puntero (dedo) en todo el bloque de ropa */
+    cursor: pointer; 
+    /* AÑADIDO: Transición suave para la animación */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* AÑADIDO: Efecto de elevación al pasar el ratón */
+.card:hover {
+    transform: scale(1.05); /* Escala ligeramente */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3); /* Sombra más grande */
+}
+
+.card img { width: 100%; height: 180px; object-fit: cover; display: block; margin: auto; }
+.card h3 { margin: 10px 0; }
+.card p { margin: 5px 0; font-weight: bold; color: #0a84ff; }
+
+.boton-comprar { 
+    display: inline-block; 
+    background: #0aa4e8; 
+    color: white; 
+    padding: 8px 15px; 
+    border-radius: 5px; 
+    text-decoration: none; 
+    /* AÑADIDO: Asegura el cursor de puntero en el botón */
+    cursor: pointer; 
+    margin-top: 10px; 
+    /* AÑADIDO: Transición para el efecto hover del botón */
+    transition: background-color 0.2s ease;
+}
+
+/* AÑADIDO: Efecto hover para el botón (oscurecer) */
+.boton-comprar:hover {
+    background: #0084c6; /* Un azul más oscuro */
+}
+
+footer { margin-top: 40px; background: #0a84ff; color: white; text-align: center; padding: 20px; }
+.footer-info { margin-top: 10px; font-size: 15px; line-height: 1.5; }
+.footer-info b { color: #fff; }
+#carrito ul { list-style: none; padding: 0; margin-top: 10px; }
+#carrito li { margin-bottom: 5px; }

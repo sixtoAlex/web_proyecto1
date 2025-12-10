@@ -12,39 +12,32 @@ body {
 }
 
 /* ================================================= */
-/* MODIFICACIÓN CLAVE: ALINEACIÓN DEL LOGO */
+/* HEADER */
 /* ================================================= */
 
 header {
     background: #0a84ff;
     color: #fff;
-    /* Aplicamos el padding horizontal al header */
     padding: 15px 20px; 
 }
 
-/* El contenedor interno ahora solo se encarga del ancho máximo */
 .header-container {
     max-width: 1100px;
     margin: auto;
     
-    /* Configuración de Flexbox para la máxima separación */
     display: flex;
     align-items: center;
-    /* CLAVE: Separa los elementos al máximo */
     justify-content: space-between; 
     
-    /* Quitamos el padding aquí para que el logo toque el borde del padding del header */
     padding: 0; 
 }
 
 .logo-group {
-    /* Nos aseguramos de que no haya margen interno que empuje el logo */
     display: flex;
     align-items: center;
     gap: 15px;
 }
 
-/* ... (El resto del código CSS sigue igual) ... */
 .logo-img {
     height: 60px;
     border-radius: 10px;
@@ -52,13 +45,16 @@ header {
 
 .title-link {
     text-decoration: none;
-    color: white; /* Asegura que el título en el enlace sea blanco */
+    color: white; 
 }
 
 .title-link h1 {
     font-size: 26px;
     margin: 0;
 }
+
+/* ================================================= */
+/* NAVEGACIÓN */
 /* ================================================= */
 
 nav {
@@ -77,7 +73,16 @@ nav a {
     text-decoration: none;
     font-weight: bold;
     color: #0a84ff;
+    transition: color 0.2s ease;
 }
+
+nav a:hover {
+    color: #0056b3;
+}
+
+/* ================================================= */
+/* MAIN CONTENT / PRODUCTOS */
+/* ================================================= */
 
 main {
     max-width: 1100px;
@@ -91,47 +96,48 @@ h2 {
     padding-left: 10px;
 }
 
-/* ================================================= */
-/* MODIFICACIÓN 2: DISPOSICIÓN DE PRODUCTOS (Fila Única) */
-/* ================================================= */
+/* DISPOSICIÓN DE PRODUCTOS (Scroll Horizontal) */
 .productos {
-    /* Reemplazamos grid por flexbox para una sola fila */
     display: flex;
-    /* CLAVE: Evita que los productos salten a la siguiente línea */
     flex-wrap: nowrap;
-    
-    /* Permite el desplazamiento horizontal si hay muchas tarjetas */
     overflow-x: auto;
-    
     gap: 20px;
-    
-    /* Asegura que los productos empiecen desde la izquierda */
     justify-content: flex-start;
-    padding: 10px 0; /* Agrega un padding si hay scroll */
+    padding: 10px 0;
 }
 
+/* TARJETA DEL PRODUCTO */
 .card {
     background: #fff;
-    width: 280px; /* Incrementamos ligeramente el ancho para que se vean mejor */
-    /* CLAVE: Evita que las tarjetas se achiquen forzosamente */
-    flex-shrink: 0; 
+    width: 280px; 
+    flex-shrink: 0; /* Bloquea el encogimiento */
     
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     text-align: center;
     padding-bottom: 10px;
+
+    /* Dedo en el bloque */
+    cursor: pointer; 
+    
+    /* ANIMACIÓN: Transición suave para todos los efectos */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ANIMACIÓN AL HACER HOVER (Eleva y escala) */
+.card:hover {
+    transform: scale(1.03); /* Ligeramente más grande */
+    box-shadow: 0 8px 18px rgba(0,0,0,0.25); /* Sombra más grande */
 }
 
 .card img {
-    /* width: 100%; (Quitamos ya que la tarjeta tiene un ancho fijo) */
-    width: 280px; /* Fija el ancho de la imagen */
+    width: 280px; 
     height: 180px;
     object-fit: cover;
     display: block;
     margin: auto;
 }
-/* ================================================= */
 
 .card h3 {
     margin: 10px 0;
@@ -152,7 +158,16 @@ h2 {
     text-decoration: none;
     margin-top: 10px;
     cursor: pointer;
+    transition: background-color 0.2s ease;
 }
+
+.boton-comprar:hover {
+    background: #0066cc;
+}
+
+/* ================================================= */
+/* FOOTER */
+/* ================================================= */
 
 footer {
     margin-top: 40px;
