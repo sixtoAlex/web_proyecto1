@@ -54,6 +54,7 @@ h2 { margin: 20px 0; border-left: 6px solid #0a84ff; padding-left: 10px; }
     background: #0084c6; /* Un azul más oscuro */
 }
 
+
 footer { margin-top: 40px; background: #0a84ff; color: white; text-align: center; padding: 20px; }
 .footer-info { margin-top: 10px; font-size: 15px; line-height: 1.5; }
 .footer-info b { color: #fff; }

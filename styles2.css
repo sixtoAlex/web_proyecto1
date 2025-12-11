@@ -10,11 +10,6 @@ body {
     background: #f0f8ff;
     color: #222;
 }
-
-/* ================================================= */
-/* HEADER */
-/* ================================================= */
-
 header {
     background: #0a84ff;
     color: #fff;
@@ -185,4 +180,81 @@ footer {
 
 .footer-info b {
     color: #fff;
+}
+@media screen and (max-width: 768px) {
+    
+    /* 1. Menú de Hamburguesa (Header y Nav) */
+    
+    .header-container {
+        /* Fuerza a que el logo y el icono estén en los extremos en móvil */
+        justify-content: space-between;
+        padding: 10px 15px;
+    }
+
+    /* Mostrar solo el logo/título y ocultar el título secundario si es necesario */
+    .title-link {
+        /* Puedes ajustar el tamaño de la fuente para que quepa mejor */
+        font-size: 0.8em; 
+    }
+    
+    /* Mostrar el icono de hamburguesa */
+    .menu-icon {
+        display: block;
+    }
+    
+    /* Ocultar la lista de navegación por defecto en móviles */
+    .main-nav {
+        width: 100%;
+        position: absolute;
+        top: 80px; /* Ajusta la posición debajo del header */
+        left: 0;
+        background-color: #333;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        
+        /* Ocultar el menú fuera de la pantalla */
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    /* Lista vertical y centrada */
+    .main-nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .main-nav ul li a {
+        text-align: center;
+        border-bottom: 1px solid #555;
+    }
+
+    /* El Hack de CSS: Mostrar el menú cuando el checkbox está marcado */
+    #menu-toggle:checked ~ .main-nav {
+        transform: translateX(0); /* Desliza el menú a la vista */
+    }
+
+    /* 2. Tarjetas de Productos Responsive */
+    
+    /* Cambiar de fila a columna y permitir que se envuelvan */
+    .productos {
+        flex-direction: column; /* Cambia a una sola columna */
+        gap: 20px;
+        padding: 0 15px;
+    }
+
+    .card {
+        width: 100%; /* La tarjeta ocupa todo el ancho disponible */
+        max-width: none; /* Asegura que no haya un límite de ancho */
+        margin: 0;
+    }
+
+    .card img {
+        height: auto;
+        max-width: 100%; /* Asegura que la imagen no exceda el tamaño de la tarjeta */
+    }
+
+    /* 3. Footer Responsive */
+    .footer-info {
+        flex-direction: column;
+        text-align: center;
+    }
 }
